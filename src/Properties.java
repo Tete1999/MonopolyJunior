@@ -1,15 +1,14 @@
 public class Properties extends MonopolySquare {
 
-    int price;
+    private int price;
     String propertyName;
     boolean isOwned;
     Player ownerName;
 
-    public Properties(int price, String propertyName, boolean isOwned, Player ownerName) {
-        this.price = price;
-        this.propertyName = propertyName;
-        this.ownerName = ownerName;
-        this.isOwned = isOwned;
+
+    public Properties(String propertyName)
+    {
+        super(propertyName);
     }
 
 
@@ -31,5 +30,6 @@ public class Properties extends MonopolySquare {
     }
 
 
+    }
 }
 

@@ -7,6 +7,50 @@ public class Player {
 	public Player(String n){
 		name = n;
 		bankAccount = 31;
+		location = 0;
+		isTurn = False;
+	}
+
+	public int getBankAccount() {
+		return bankAccount;
+	}
+
+	public void addBankaccount(int amount){
+		bankAccount = bankAccount + amount;
+	}
+
+	public void minusBankaccount(int amount)
+	{
+		bankAccount = bankAccount - amount;
+	}
+
+	public int getLocation()
+	{
+		return location;
+	}
+
+	public void setLocation(int location) {
+		this.location = location;
+	}
+
+	public void setBankAccount(int bankAccount) {
+		this.bankAccount = bankAccount;
+	}
+
+	public void newLocation(int diceRolled)
+	{
+		int tracker = location + diceRolled;
+		if (tracker >= 31)
+		{
+			location = tracker - location;
+			setLocation(location);
+		}
+		else
+		{
+			location = location + diceRolled;
+			setLocation(location);
+		}
+
 	}
 
 	/* you will add several methods to this class as needed.*/
