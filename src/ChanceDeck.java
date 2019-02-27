@@ -1,14 +1,34 @@
+ import java.util.ArrayList;
+ import java.util.Random;
+
 public class ChanceDeck {
 
-	/* Be careful, this may be more complex than you originally thought
-	- There are different *kinds* of chance cards; each has its own action
-	- What do you do if you have used all the cards?
-	- How does the deck get populated?
-	 */
+	protected ArrayList<Integer> deck = new ArrayList<Integer>();
 
-	public ChanceDeck(){
-		// Needs code
+	public ChanceDeck() {
+
+		deck.add(0);      // 0 is specific
+		deck.add(0);
+		deck.add(1);	 // 1 is freeTicketBooth
+	}
+		public int getDeckLenghth()
+	{
+		return deck.size();
 	}
 
-	//Needs extra Methods.
+	public boolean removeCard(int index)
+	{
+		System.out.println(deck.get(index));
+		deck.remove(index);
+	}
+
+
+
+
+
+
+
+
 }
+
+

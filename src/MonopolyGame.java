@@ -1,28 +1,34 @@
 import java.util.Random;
 
 public class MonopolyGame {
-	private MonopolySquare[] board;
-	private Random dice;
 	private LooseChange lc;
 	private ChanceDeck chanceCardDeck;
 
 
 	public MonopolyGame(){
 
-		p1 = new Player("Talal");
-		p2 = new Player("Khan");
-
 	}
-	public void play() {
-		System.out.println("Playing game");  // remove this.
-	}
-
-	public int roll()
+	public void play()
 	{
-		Random r = new Random();
-		int dRoll= r.nextInt(6) + 1;
-		return dRoll;
+		boolean gameEnd = false;
+		Player p1 = new Player("Talal");
+		Player p2 = new Player("Stephen");
+		Board board = new Board();
+
+		while(!gameEnd)
+		{
+			p1.takeTurn();
+			board.youLandedOn(p1.getLocation());
+			if (p1.getLocation() == )
+		}
+
+
+
+
+
 	}
+
+
 
 
 }

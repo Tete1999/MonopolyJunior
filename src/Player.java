@@ -1,65 +1,63 @@
+import java.util.Random;
+
 public class Player {
-	private int bankAccount;
 	private String name;
-	private boolean isTurn;
+	private int bankBalance;
 	private int location;
 
-	public Player(String n){
-		name = n;
-		bankAccount = 31;
+	Dice d1 = new Dice();
+
+
+	public Player(String name)
+	{
+		this.name = name;
+		bankBalance = 31;
 		location = 0;
-		isTurn = False;
 	}
 
-	public int getBankAccount() {
-		return bankAccount;
-	}
-
-	public void addBankaccount(int amount){
-		bankAccount = bankAccount + amount;
-	}
-
-	public void minusBankaccount(int amount)
+	public int getBankBalance()
 	{
-		bankAccount = bankAccount - amount;
+		return bankBalance;
 	}
 
-	public int getLocation()
+	public String getName() {
+		return name;
+	}
+
+	public void moneyFlow(int value)
 	{
-		return location;
+		bankBalance += value;
 	}
 
-	public void setLocation(int location) {
-		this.location = location;
-	}
-
-	public void setBankAccount(int bankAccount) {
-		this.bankAccount = bankAccount;
-	}
-
-	public void newLocation(int diceRolled)
+	public boolean isBankrupt()
 	{
-		int tracker = location + diceRolled;
-		if (tracker >= 31)
-		{
-			location = tracker - location;
-			setLocation(location);
-		}
-		else
-		{
-			location = location + diceRolled;
-			setLocation(location);
-		}
+		return (bankBalance <= 0);
+	}
+
+	public void setLocation(int loc)
+	{
+		location = loc % 32;
+	}
+
+	public void move(){
+		int roll = d1.roll();
+		setLocation(location + roll);
+		System.out.println(name + " Rolled a " + roll);
+	}
+
+	public int tempLoc(int location)   // Solely for purpose of FreeTicket booth for chance class
+	{
+		Random r = new Random();
+		int loc = location + r.nextInt(32) % 32;
+		return loc;
 
 	}
 
-	/* you will add several methods to this class as needed.*/
 
-	/* Whenever you adjust the location, don't forget to check
-	to see if you passed "Go".   The instructions explicitly said
-	that this was the responsiblity of the player, so this
-	functionality belongs here.
 
-	(unless you are told to go "directly" to location, i.e. jail/restroom)
-	 */
+	public void getPlayerBalance()
+	{
+		System.out.println(name + " You have this much money: " + bankBalance);
+	}
 }
+
