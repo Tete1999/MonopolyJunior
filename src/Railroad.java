@@ -10,17 +10,13 @@ public class Railroad extends MonopolySquare {
     public void landOn(Player P) throws BankruptException
     {
         printMessage(P);
+        P.move();
     }
 
     public void printMessage(Player P){
 
-        System.out.println("You landed on " + name + ".");
+        System.out.println(P.getName() + "landed on " + name + ".");
         System.out.println(P.getName() + " gets to roll again.");
     }
-
-
-
-
-
 
 }

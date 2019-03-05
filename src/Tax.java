@@ -7,29 +7,30 @@ public class Tax extends MonopolySquare
     private LooseChange lc;
 
 
+
+
     public Tax(String name, LooseChange lc, int tax)
     {
+        super(name);
         this.tax = tax;
         this.lc = lc;
     }
 
     public void printMessage(Player P){
-        System.out.println(P.getName() + "landed on " + name);
+        System.out.println(P.getName() + " landed on " + name);
         System.out.println(P.getName() + " has to pay " + tax + " in taxes.");
-        P.getBankBalance();
+        System.out.println(P.getName() + " New Balance = " + P.getBankBalance() + "\n");
     }
 
-    public void landOn(Player P) throws BankruptException{
+    public void landOn(Player P) throws BankruptException
+    {
 
-        P.moneyFlow(tax * -1);  // subtract tax from player
-        if (P.isBankrupt())
-        {
-            throw new BankruptException(P.getName() + "ran out of money !");
+        P.addBankBalance(-1*tax);
+        printMessage(P);
+        if (P.isBankrupt() == true) {
+            throw new BankruptException(P.getName()+ " is Bankrupt.");
         }
-        else {
-            printMessage(P);
-            lc.addBalance(tax);
-        }
+        lc.addBalance(tax);
     }
 
 }

@@ -1,23 +1,21 @@
 public class Go extends MonopolySquare {
 
-
-    int money = 2;
-
     public Go(String name)
     {
         super(name);
     }
 
-    public int goMoney()
-    {
-       return money;
-    }
+
     @Override
     public void landOn(Player P) throws BankruptException {
+        printMessage(P);
+        P.addBankBalance(2);
+        System.out.println(P.getName() + " New Balance = " + P.getBankBalance() + "\n");
     }
 
     public void printMessage(Player P)
     {
-        System.out.println(P.getName() + "gets" + goMoney() + "$ by passing or landing Go");
+        System.out.println(P.getName() + " gets $2 by passing or landing Go");
+
     }
 }
