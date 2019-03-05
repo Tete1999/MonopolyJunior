@@ -6,8 +6,8 @@ public class Properties extends MonopolySquare
     private String propertyName;
     Player ownerName;
     private int price;
-    protected Boolean isOwned;  //##
-    protected String color;     // ## made protected
+    private Boolean isOwned;
+    private String color;
 
 
     public Properties(int price,String propertyName, boolean isOwned, Player ownerName, String color) {
