@@ -10,8 +10,9 @@ public class Restroom extends MonopolySquare
     }
     public void printMessage(Player P)
     {
-        System.out.println(P.getName() + "landed on Restroom");
+        System.out.println(P.getName() + " landed on Restroom. Please Rest\n");
     }
 }
+
 
 
