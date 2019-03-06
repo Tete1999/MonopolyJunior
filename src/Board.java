@@ -36,8 +36,8 @@ public class Board {
 
         propertyList.add(10, new Restroom("Restroom"));
 
-        propertyList.add(11, new Properties(2, "Magneta1", false, null, "M"));
-        propertyList.add(12, new Properties(2, "Magneta2", false, null, "M"));
+        propertyList.add(11, new Properties(2, "Magenta1", false, null, "M"));
+        propertyList.add(12, new Properties(2, "Magenta2", false, null, "M"));
 
 
         propertyList.add(13, new Railroad("RailRoad2"));
@@ -72,7 +72,7 @@ public class Board {
         propertyList.add(29, new Railroad("RailRoad4"));
 
         propertyList.add(30, new Properties(5, "Blue1", false, null, "B"));
-        propertyList.add(31, new Properties(5, "Blue1", false, null, "B"));
+        propertyList.add(31, new Properties(5, "Blue2", false, null, "B"));
 
 
 

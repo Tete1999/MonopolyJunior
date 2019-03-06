@@ -61,6 +61,11 @@ public class Properties extends MonopolySquare
         }
     }
 
+    public void landOn(Player P, String color) throws BankruptException {
+
+
+    }
+
     public void printMessage(Player P){
         System.out.println(P.getName() + " landed on " + propertyName);
         System.out.println(P.getName() + " purchased " + propertyName );

@@ -25,7 +25,6 @@ public class MonopolyGame {
 		try {
 
 			while(true) {
-
 				while (p1.getTurn() == true) {
 					p1.move();
 					if (p1.getLocation() == 5 || p1.getLocation() == 13 || p1.getLocation() == 21 || p1.getLocation() == 29) {

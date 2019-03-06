@@ -15,7 +15,7 @@ public class Go extends MonopolySquare {
 
     public void printMessage(Player P)
     {
-        System.out.println(P.getName() + " gets $2 by passing or landing Go");
+        System.out.println(P.getName() + " gets $2 by  landing Go");
 
     }
 }
