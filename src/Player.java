@@ -7,11 +7,10 @@ public class Player {
 	private int location;
 	private Boolean isTurn;
 	protected ArrayList<String> ownedColors = new ArrayList<String>();
-	protected ArrayList<String> ownedPropertyNames = new ArrayList<String>();
 
 
 
-	Dice d1 = new Dice();
+	private Dice d1 = new Dice();
 
 	public Player(String name)
 	{
@@ -49,7 +48,10 @@ public class Player {
 			System.out.println(name + " New Balance = " + bankBalance);
 		}
 		this.location = location % 32;
+	}
 
+	public void setLocationGoRestroom(int location){
+		this.location = location % 32;
 	}
 
 	public void addBankBalance(int amount) {

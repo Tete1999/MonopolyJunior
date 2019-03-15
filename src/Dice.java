@@ -1,13 +1,11 @@
 import java.util.Random;
 
-public class Dice {
+class Dice {
+    private Random r = new Random();
+    Dice(){}
 
-    public Dice(){}
-
-    public int roll()
+    int roll()
     {
-        Random r = new Random();
-        int dRoll= r.nextInt(6) + 1;
-        return dRoll;
+        return r.nextInt(6) + 1;
     }
 }

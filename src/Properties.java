@@ -1,10 +1,10 @@
-import java.util.ArrayList;
 
+/* Bunch of print Statements that make it little lengthy, but they make the game much more easier to follow */
 public class Properties extends MonopolySquare
 {
 
     private String propertyName;
-    Player ownerName;
+    private Player ownerName;
     private int price;
     private Boolean isOwned;
     private String color;
@@ -21,57 +21,57 @@ public class Properties extends MonopolySquare
 
 
     public void landOn(Player P) throws BankruptException {
-        if (isOwned == false){
-            P.addBankBalance(-1*price);
+        if (!isOwned){
             printMessage(P);
-            System.out.println(P.getName() + " New Balance = " + P.getBankBalance()+ "\n");
-            if (P.isBankrupt() == true)
+            P.addBankBalance(-1*price);
+            if (P.isBankrupt())
             {
+                System.out.println(P.getName() + " cannot complete this action");
                 throw new BankruptException(P.getName() + " is Bankrupt.");
             }
+            System.out.println(P.getName() + " purchased " + propertyName );
+            System.out.println(P.getName() + " New Balance = " + P.getBankBalance()+ "\n");
             setOwned(true);
             setOwnerName(P);
             P.ownedColors.add(color);
         }
         else if (isOwned && (!getOwnerName().equals(P))){
-            System.out.println(P.getName() + " landed on " + propertyName);
+            printMessage(P);
 
-            if (ownerName.getOwnedColorCount(color) == 2){
-                System.out.println("Color " + color +" is a Monopoly so pay double rent.");
-                System.out.println("You have to pay rent of $" + price*2);
+            if (checkMonopoly()){
                 P.addBankBalance(-2*price);
+                if (P.isBankrupt())
+                {   System.out.println(P.getName() + " cannot complete this action");
+                    throw new BankruptException(P.getName()+ " is Bankrupt.");
+                }
                 ownerName.addBankBalance(price*2);
-                System.out.println(P.getName() + " New Balance = " + P.getBankBalance()+ "\n");
+                System.out.println(P.getName() + " New Balance = " + P.getBankBalance());
+                System.out.println(ownerName.getName() + " New Balance After Receiving Rent = " + ownerName.getBankBalance() + "\n");
             }
             else {
                 System.out.println("You have to pay rent of $" + price);
                 P.addBankBalance(-1 * price);
+                if (P.isBankrupt())
+                {
+                    System.out.println(P.getName() + " cannot complete this action");
+                    throw new BankruptException(P.getName()+ " is Bankrupt.");
+                }
                 ownerName.addBankBalance(price);
-                System.out.println(P.getName() + " New Balance = " + P.getBankBalance() + "\n");
+                System.out.println(P.getName() + " New Balance = " + P.getBankBalance());
+                System.out.println(ownerName.getName() + " New Balance After Receiving Rent = " + ownerName.getBankBalance() + "\n");
             }
 
-            if (P.isBankrupt())
-            {
-                throw new BankruptException(P.getName()+ " is Bankrupt.");
-            }
         }
         else{
-            System.out.println(P.getName() + " landed on " + propertyName);
+            printMessage(P);
             System.out.println("You already own this property " + propertyName + "\n");
         }
-    }
-
-    public void landOn(Player P, String color) throws BankruptException {
-
-
+        P.setTurn(false);
     }
 
     public void printMessage(Player P){
         System.out.println(P.getName() + " landed on " + propertyName);
-        System.out.println(P.getName() + " purchased " + propertyName );
     }
-
-
 
     public Boolean getOwned() {
         return isOwned;
@@ -102,10 +102,12 @@ public class Properties extends MonopolySquare
     }
 
 
-    private void checkMonopoly(Player P){
-        if (P.getOwnedColorCount(color) == 2){
+    private boolean checkMonopoly(){
+        if (ownerName.getOwnedColorCount(color) == 2){
             System.out.println("Color " + color +" is a Monopoly so pay double rent.");
+            System.out.println("You have to pay rent of $" + price*2);
+            return true;
         }
+        return false;
     }
-
 }

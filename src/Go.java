@@ -11,11 +11,12 @@ public class Go extends MonopolySquare {
         printMessage(P);
         P.addBankBalance(2);
         System.out.println(P.getName() + " New Balance = " + P.getBankBalance() + "\n");
+        P.setTurn(false);
     }
 
     public void printMessage(Player P)
     {
-        System.out.println(P.getName() + " gets $2 by  landing Go");
+        System.out.println(P.getName() + " gets $2 by landing on Go");
 
     }
 }

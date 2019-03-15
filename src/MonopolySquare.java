@@ -1,9 +1,8 @@
-public abstract class MonopolySquare{
+public abstract class MonopolySquare {
 
 	protected String name;
 
-	public MonopolySquare(String n)
-	{
+	public MonopolySquare(String n) {
 		name = n;
 	}
 
@@ -13,8 +12,4 @@ public abstract class MonopolySquare{
 
 	public abstract void printMessage(Player P);
 
-	@Override
-	public String toString() {
-		return name;
-	}
 }

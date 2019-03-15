@@ -7,6 +7,7 @@ public class Restroom extends MonopolySquare
     public void landOn(Player P) throws BankruptException
     {
         printMessage(P);
+        P.setTurn(false);
     }
     public void printMessage(Player P)
     {

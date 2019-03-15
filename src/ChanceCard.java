@@ -1,26 +1,11 @@
-public class ChanceCard {
-    private int goLocation;
-    private String action;
-    private String type;
+public abstract class ChanceCard {
 
+    protected String name;
+    public ChanceCard(String n){name = n;}
 
-    ChanceCard( String type, String action, int goLocation)
-    {
-        this.goLocation = goLocation;
-        this.action = action;
-        this.type = type;
-    }
+    public abstract void action(Player P) throws DrawNewCardException;
 
-
-    public String getAction() {
-        return action;
-    }
-
-    public int getGoLocation() {
-        return goLocation;
-    }
-
-    public String getType() {
-        return type;
+    public String getName() {
+        return name;
     }
 }

@@ -9,7 +9,6 @@ public class LooseChange extends MonopolySquare {
 
 	public LooseChange(String name) {
 		super(name);
-		this.balanceLC = balanceLC;
 	}
 
 	public void printMessage(Player P) {
@@ -18,15 +17,16 @@ public class LooseChange extends MonopolySquare {
 
 	}
 
-	public void resetBalance() {
+	private void resetBalance() {
 		balanceLC = 0;
 	}
 
 	public void landOn(Player P) throws BankruptException {
 		printMessage(P);
 		P.addBankBalance(balanceLC);
-		System.out.println("You gained $" + balanceLC +". Your new Balance: " + P.getBankBalance()+ "\n");
+		System.out.println( P.getName() + " New Balance = " + P.getBankBalance()+ "\n");
 		resetBalance();
+		P.setTurn(false);
 
 	}
 
