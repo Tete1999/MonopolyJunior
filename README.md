@@ -1,4 +1,4 @@
-# monopolymorphism-talal1999
-monopolymorphism-talal1999 created by GitHub Classroom
+Non-Gui implementation of Monopoly Junir illustrating the concept of Exception Handling and Polymorphism.
+
 
 
